@@ -1,0 +1,177 @@
+<template>
+  <div id="NavBar">
+    <!-- Logo -->
+    <img src="../../../Construccion de Layout/download.jpeg" class="logo" alt="Logo IPMHU" />
+    <!-- Hamburger Menu -->
+    <div class="btn-menu-container">
+      <label for="menu-mod" class="labelBnt">
+        <div class="btn-menu">
+          <img src="../assets/menu-button.png" alt="menu-button" class="img-menu" id="idBtn-menu" />
+        </div>
+      </label>
+    </div>
+    <!-- Checkbox for to use checked in css for show the menu -->
+    <input type="checkbox" class="chk-menu" name="chk-menu" id="menu-mod" />
+    <nav class="nav-bar">
+      <ul class="main-menu">
+        <li class="nav-bar-item">
+          <router-link :to="{name:'home'}">Home</router-link>
+        </li>
+        <li class="nav-bar-item">
+          <router-link :to="{name:'about'}">About</router-link>
+        </li>
+        <li class="nav-bar-item">
+          <router-link :to="{name:'about'}">Maestros</router-link>
+        </li>
+        <li class="nav-bar-item">
+          <router-link :to="{name:'about'}">Promosiones</router-link>
+        </li>
+        <li class="nav-bar-item">
+          <router-link :to="{name:'about'}">Noticias</router-link>
+        </li>
+        <li class="nav-bar-item">
+          <router-link :to="{name:'about'}">Login</router-link>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "NavBar",
+  data() {
+    return {};
+  }
+};
+</script>
+
+<style scoped>
+:root {
+  --primary-color: rgba(0, 0, 0, 0.9);
+  --secund-color: #ffffff;
+}
+#NavBar {
+  background: var(--primary-color);
+  display: flex;
+  height: auto;
+}
+.logo {
+  position: relative;
+  width: 85px;
+  height: 85px;
+  right: 0;
+  top: 0;
+  margin-right: auto;
+  margin-top: 5px;
+}
+a {
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+  font-size: inherit;
+  background: inherit;
+  padding: inherit;
+}
+[for="menu-mod"] {
+  width: inherit;
+  height: inherit;
+  padding: inherit;
+  margin: 0;
+  background: #fff;
+}
+.nav-bar {
+  display: flex;
+  padding: 0 15px;
+}
+.nav-bar-item {
+  display: inline-block;
+  padding: 20px 20px;
+  margin: 15px 10;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--secund-color);
+}
+.nav-bar-item:hover {
+  background: rgba(1, 1, 1, 0.5);
+}
+
+/* Adelanto */
+[class="chk-menu"] {
+  display: none;
+}
+.img-menu {
+  display: none;
+}
+.labelBtn {
+  width: inherit;
+  height: inherit;
+  display: inline-block;
+  font: inherit;
+  background: inherit;
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    background: green;
+    width: 300px;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background: var(--primary-color);
+    padding: 0 0;
+    transform: translateX(-400px);
+    transition: all 0.4s;
+    margin-top: 0;
+    position: absolute;
+    top: 55px;
+  }
+  .main-menu {
+    flex: 1 1 auto;
+    height: auto;
+  }
+  .nav-bar-item {
+    display: flex;
+    flex: 1 1 auto;
+    padding: 20px 5px;
+    margin: 0px 0px;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--secund-color);
+  }
+  .btn-menu-container {
+    display: flex;
+    width: 3.5em;
+    height: 3.5em;
+    padding: 0px 0px;
+    margin-left: 0px;
+    justify-content: center;
+  }
+  .btn-menu-container:hover {
+    background: #cccccc;
+  }
+  .img-menu {
+    display: block;
+    width: inherit;
+    height: inherit;
+    margin-top: 10.5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .chk-menu:checked ~ .nav-bar {
+    margin-left: 0px;
+    transform: translateX(0px);
+    transition: all 0.5s;
+  }
+  .logo {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    top: 0;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+}
+</style>
