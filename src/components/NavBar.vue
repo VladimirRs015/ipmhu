@@ -15,22 +15,22 @@
     <nav class="nav-bar">
       <ul class="main-menu">
         <li class="nav-bar-item">
-          <router-link :to="{name:'home'}">Home</router-link>
+          <router-link class="home icons" :to="{name:'home'}">Inicio</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link :to="{name:'about'}">About</router-link>
+          <router-link class="about icons" :to="{name:'about'}">Nosotros</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link :to="{name:'about'}">Maestros</router-link>
+          <router-link class="teachers icons" :to="{name:'about'}">Maestros</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link :to="{name:'about'}">Promosiones</router-link>
+          <router-link class="promotions icons" :to="{name:'about'}">Promosiones</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link :to="{name:'about'}">Noticias</router-link>
+          <router-link class="news icons" :to="{name:'about'}">Noticias</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link :to="{name:'about'}">Login</router-link>
+          <router-link class="login icons" :to="{name:'about'}">Login</router-link>
         </li>
       </ul>
     </nav>
@@ -47,14 +47,11 @@ export default {
 </script>
 
 <style scoped>
-:root {
-  --primary-color: rgba(0, 0, 0, 0.9);
-  --secund-color: #ffffff;
-}
 #NavBar {
   background: var(--primary-color);
   display: flex;
   height: auto;
+  margin-bottom: 2em;
 }
 .logo {
   position: relative;
@@ -70,8 +67,7 @@ a {
   color: inherit;
   text-decoration: none;
   font-size: inherit;
-  background: inherit;
-  padding: inherit;
+  display: inline-block;
 }
 [for="menu-mod"] {
   width: inherit;
@@ -93,10 +89,42 @@ a {
   color: var(--secund-color);
 }
 .nav-bar-item:hover {
-  background: rgba(1, 1, 1, 0.5);
+  background: rgba(100, 100, 100, 0.9);
 }
-
-/* Adelanto */
+/* .nav-bar-item:hover {
+  background-color: red;
+} */
+/* */
+/* Icons */
+.icons::before {
+  content: "";
+  width: 25px;
+  height: 25px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  right: 5px;
+}
+.home::before {
+  background-image: url("../assets/icons/home.png");
+}
+.teachers::before {
+  background-image: url("../assets/icons/teachers.png");
+}
+.about::before {
+  background-image: url("../assets/icons/worker.png");
+}
+.promotions::before {
+  background-image: url("../assets/icons/medal.png");
+}
+.news::before {
+  background-image: url("../assets/icons/newspaper.png");
+}
+.login::before {
+  background-image: url("../assets/icons/user.png");
+}
+/* Icons end */
 [class="chk-menu"] {
   display: none;
 }
@@ -113,7 +141,6 @@ a {
 
 @media (max-width: 768px) {
   .nav-bar {
-    background: green;
     width: 300px;
     height: auto;
     display: flex;
