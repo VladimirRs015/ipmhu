@@ -6,9 +6,16 @@
 </template>
 <script>
 import NavBar from "./components/NavBar.vue";
+import Axios from "axios";
 export default {
   components: {
     NavBar
+  },
+  created() {
+    function request() {
+      Axios.get("http://localhost:4000/hola");
+    }
+    request();
   }
 };
 </script>
@@ -30,7 +37,7 @@ export default {
   color: #2c3e50;
 }
 
-#nav a.router-link-exact-active {
+/* #nav a.router-link-exact-active {
   color: #42b983;
-}
+} */
 </style>

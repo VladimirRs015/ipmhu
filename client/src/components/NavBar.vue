@@ -1,7 +1,7 @@
 <template>
   <div id="NavBar">
     <!-- Logo -->
-    <img src="../../../Construccion de Layout/download.jpeg" class="logo" alt="Logo IPMHU" />
+    <img src="../../../../Construccion de Layout/download.jpeg" class="logo" alt="Logo IPMHU" />
     <!-- Hamburger Menu -->
     <div class="btn-menu-container">
       <label for="menu-mod" class="labelBnt">
