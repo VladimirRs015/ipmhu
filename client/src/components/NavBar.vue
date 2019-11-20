@@ -21,16 +21,16 @@
           <router-link class="about icons" :to="{name:'about'}">Nosotros</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link class="teachers icons" :to="{name:'about'}">Maestros</router-link>
+          <router-link class="teachers icons" :to="{name:'teachers'}">Maestros</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link class="promotions icons" :to="{name:'about'}">Promosiones</router-link>
+          <router-link class="promotions icons" :to="{name:'promotions'}">Promosiones</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link class="news icons" :to="{name:'about'}">Noticias</router-link>
+          <router-link class="news icons" :to="{name:'news'}">Noticias</router-link>
         </li>
         <li class="nav-bar-item">
-          <router-link class="login icons" :to="{name:'about'}">Login</router-link>
+          <router-link class="login icons" :to="{name:'login'}">Login</router-link>
         </li>
       </ul>
     </nav>
@@ -199,6 +199,10 @@ a {
     top: 0;
     margin-right: 5px;
     margin-top: 5px;
+  }
+  /* Visual efect with active item */
+  .nav-bar-item a.router-link-exact-active {
+    color: #42b983;
   }
 }
 </style>

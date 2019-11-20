@@ -1,7 +1,17 @@
 const mongoose = require("mongoose");
 var db;
-function dbconnect() {
-  return (db = mongoose.createConnection("mongodb://localhost/ipmhu:27017"));
+async function dbconnect() {
+  db = mongoose
+    .connect("mongodb://localhost:27017/ipmhu", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    .then(data => console.log("The database is connected"));
+  //
+}
+function handleError(err) {
+  console.error(err);
+  dbconnect();
 }
 if (!db) {
   dbconnect();

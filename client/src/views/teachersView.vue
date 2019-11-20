@@ -1,5 +1,6 @@
 <template>
   <div id="teachers">
+    <h1 class="titles">Lista de profesores</h1>
     <TeachersList />
   </div>
 </template>

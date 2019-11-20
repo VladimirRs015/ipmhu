@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import TeacherView from "../views/teachersView.vue";
+import TeachersView from "../views/teachersView.vue";
 
 Vue.use(VueRouter);
 
@@ -23,7 +23,7 @@ const routes = [
   {
     path: "/teachers",
     name: "teachers",
-    component: TeacherView
+    component: TeachersView
   }
 ];
 
