@@ -1,8 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
+//Views
 import Home from "../views/Home.vue";
 import TeachersView from "../views/teachersView.vue";
-
+import Developers from "../views/develpers.vue";
+import News from "../views/news.vue";
+import Login from "../views/login.vue";
+import Promotions from "../views/promotions.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -24,6 +29,26 @@ const routes = [
     path: "/teachers",
     name: "teachers",
     component: TeachersView
+  },
+  {
+    path: "/developers",
+    name: "developers",
+    component: Developers
+  },
+  {
+    path: "/news",
+    name: "news",
+    component: News
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login
+  },
+  {
+    path: "/promotions",
+    name: "promotions",
+    component: Promotions
   }
 ];
 

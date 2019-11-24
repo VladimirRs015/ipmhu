@@ -6,7 +6,7 @@
       <img class="teacherImg" :src="photos[teacher.id].url" alt />
       <p
         class="teacherSummary"
-      >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit eligendi, quas, doloribus repellendus ea sint optio maiores iusto nostrum dicta aut atque amet facere eos qui pariatur architecto dolor asperiores!</p>
+      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero doloribus quam sunt blanditiis sapiente beatae quod architecto praesentium ad hic libero in eveniet, a est aperiam ut omnis velit.</p>
     </article>
   </div>
 </template>
@@ -49,11 +49,12 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
 }
 .teacherBox {
   border: 1px solid black;
   width: 300px;
-  min-height: 250px;
+  min-height: 400px;
   display: flex;
   flex: 0 1 auto;
   flex-direction: column;
@@ -64,13 +65,32 @@ export default {
   overflow: hidden;
   border-radius: 0.5em;
   padding: 1em 2em;
+  background: var(--color1);
+}
+.teacherBox:hover .teacherSummary {
+  top: 0;
+  transition: all 0.5s;
 }
 .teacherName {
-  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 30px;
+  position: static;
   text-align: center;
+  color: var(--color3);
 }
 .teacherSummary {
-  text-align: center;
+  text-align: left;
+  position: relative;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 1, 1, 0.1);
+  display: block;
+  align-self: center;
+  justify-self: center;
+  color: var(--color4);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 10px;
 }
 .teacherImg {
   width: 150px;
@@ -78,5 +98,11 @@ export default {
   align-self: center;
   justify-self: center;
   border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .teacherBox:active .teacherSummary {
+    top: 0;
+    transition: all 0.5s;
+  }
 }
 </style>

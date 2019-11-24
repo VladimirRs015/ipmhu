@@ -1,39 +1,41 @@
 <template>
   <div id="NavBar">
     <!-- Logo -->
-    <img src="../../../../Construccion de Layout/download.jpeg" class="logo" alt="Logo IPMHU" />
-    <!-- Hamburger Menu -->
-    <div class="btn-menu-container">
-      <label for="menu-mod" class="labelBnt">
-        <div class="btn-menu">
-          <img src="../assets/menu-button.png" alt="menu-button" class="img-menu" id="idBtn-menu" />
-        </div>
-      </label>
+    <div class="NavBar">
+      <img src="../assets/Logo.png" class="logo" alt="Logo IPMHU" />
+      <!-- Hamburger Menu -->
+      <div class="btn-menu-container">
+        <label for="menu-mod" class="labelBnt">
+          <div class="btn-menu">
+            <img src="../assets/menu-button.png" alt="menu-button" class="img-menu" id="idBtn-menu" />
+          </div>
+        </label>
+      </div>
+      <!-- Checkbox for to use checked in css for show the menu -->
+      <input type="checkbox" class="chk-menu" name="chk-menu" id="menu-mod" />
+      <nav class="nav-bar">
+        <ul class="main-menu">
+          <li class="nav-bar-item">
+            <router-link class="home icons" :to="{name:'home'}">Inicio</router-link>
+          </li>
+          <li class="nav-bar-item">
+            <router-link class="about icons" :to="{name:'about'}">Nosotros</router-link>
+          </li>
+          <li class="nav-bar-item">
+            <router-link class="teachers icons" :to="{name:'teachers'}">Maestros</router-link>
+          </li>
+          <li class="nav-bar-item">
+            <router-link class="promotions icons" :to="{name:'promotions'}">Promosiones</router-link>
+          </li>
+          <li class="nav-bar-item">
+            <router-link class="news icons" :to="{name:'news'}">Noticias</router-link>
+          </li>
+          <li class="nav-bar-item">
+            <router-link class="login icons" :to="{name:'login'}">Login</router-link>
+          </li>
+        </ul>
+      </nav>
     </div>
-    <!-- Checkbox for to use checked in css for show the menu -->
-    <input type="checkbox" class="chk-menu" name="chk-menu" id="menu-mod" />
-    <nav class="nav-bar">
-      <ul class="main-menu">
-        <li class="nav-bar-item">
-          <router-link class="home icons" :to="{name:'home'}">Inicio</router-link>
-        </li>
-        <li class="nav-bar-item">
-          <router-link class="about icons" :to="{name:'about'}">Nosotros</router-link>
-        </li>
-        <li class="nav-bar-item">
-          <router-link class="teachers icons" :to="{name:'teachers'}">Maestros</router-link>
-        </li>
-        <li class="nav-bar-item">
-          <router-link class="promotions icons" :to="{name:'promotions'}">Promosiones</router-link>
-        </li>
-        <li class="nav-bar-item">
-          <router-link class="news icons" :to="{name:'news'}">Noticias</router-link>
-        </li>
-        <li class="nav-bar-item">
-          <router-link class="login icons" :to="{name:'login'}">Login</router-link>
-        </li>
-      </ul>
-    </nav>
   </div>
 </template>
 
@@ -48,15 +50,23 @@ export default {
 
 <style scoped>
 #NavBar {
-  background: var(--primary-color);
+  position: fixed;
+  width: 100vw;
+  height: 10px;
+  top: 0;
+  left: 0;
+  flex: 0 0 auto;
+}
+.NavBar {
+  background: var(--color2);
+  position: relative;
   display: flex;
-  height: auto;
-  margin-bottom: 2em;
+  flex: 0 0 auto;
 }
 .logo {
   position: relative;
-  width: 85px;
-  height: 85px;
+  width: 80px;
+  height: 80px;
   right: 0;
   top: 0;
   margin-right: auto;
@@ -68,6 +78,7 @@ a {
   text-decoration: none;
   font-size: inherit;
   display: inline-block;
+  font-weight: 700;
 }
 [for="menu-mod"] {
   width: inherit;
@@ -78,15 +89,21 @@ a {
 }
 .nav-bar {
   display: flex;
+  flex: 0 0 auto;
   padding: 0 15px;
+  /* margin-right: 10px; */
 }
 .nav-bar-item {
   display: inline-block;
-  padding: 20px 20px;
+  padding: 22px 20px;
   margin: 15px 10;
   font-size: 20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: var(--secund-color);
+  color: var(--color3);
+  border-right: 1px solid rgba(1, 1, 1, 0.1);
+}
+.nav-bar-item:last-child {
+  border: none;
 }
 .nav-bar-item:hover {
   background: rgba(100, 100, 100, 0.9);
@@ -138,15 +155,19 @@ a {
   font: inherit;
   background: inherit;
 }
+.nav-bar-item a.router-link-exact-active {
+  color: #42b983;
+  display: flex;
+}
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .nav-bar {
     width: 300px;
     height: auto;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    background: var(--primary-color);
+    background: var(--color2);
     padding: 0 0;
     transform: translateX(-400px);
     transition: all 0.4s;
@@ -165,7 +186,11 @@ a {
     margin: 0px 0px;
     font-size: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: var(--secund-color);
+    color: var(--color3);
+    border-bottom: 1px solid rgba(1, 1, 1, 0.1);
+  }
+  .nav-bar-item:last-child {
+    border: none;
   }
   .btn-menu-container {
     display: flex;
@@ -200,9 +225,7 @@ a {
     margin-right: 5px;
     margin-top: 5px;
   }
+
   /* Visual efect with active item */
-  .nav-bar-item a.router-link-exact-active {
-    color: #42b983;
-  }
 }
 </style>

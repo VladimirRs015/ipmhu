@@ -1,4 +1,12 @@
 :root {
-  --primary-color: rgba(0, 0, 0, 0.9);
-  --secund-color: #ffffff;
+  --primary-color: #64c7ff;
+  --second-color: #ffffff;
+  --third-color: #011936;
+  --fourth-color: #263c53;
+  --secondary-first-color: #64c7ff;
+  /* --secondary-second-color: #4a586e; */
+  --color2: #64c7ff;
+  --color1: #ffffff;
+  --color3: #e7eeec;
+  --color4: #f4fffd;
 }

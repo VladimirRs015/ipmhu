@@ -1,6 +1,6 @@
 <template>
   <div id="teachers">
-    <h1 class="titles">Lista de profesores</h1>
+    <h1 class="title">Lista de profesores</h1>
     <TeachersList />
   </div>
 </template>

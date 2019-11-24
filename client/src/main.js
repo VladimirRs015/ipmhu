@@ -5,6 +5,8 @@ import store from "./store";
 //Reset Margin and Paddings
 import "./assets/css/resetPadding.css";
 import "./assets/css/colors.css";
+import "./assets/css/generalStyles.css";
+
 Vue.config.productionTip = false;
 
 new Vue({

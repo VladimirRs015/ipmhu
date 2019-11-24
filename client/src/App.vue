@@ -1,21 +1,26 @@
 <template>
   <div id="app">
     <NavBar />
+    <div class="container"></div>
     <router-view />
+
+    <!-- <Footer /> -->
   </div>
 </template>
 <script>
 import NavBar from "./components/NavBar.vue";
-import Axios from "axios";
+// import Footer from "./components/footer.vue";
+// import Axios from "axios";
 export default {
   components: {
     NavBar
+    // Footer
   },
   created() {
-    function request() {
-      Axios.get("http://localhost:4000/hola");
-    }
-    request();
+    // function request() {
+    //   Axios.get("http://localhost:4000/hola");
+    // }
+    // request();
   }
 };
 </script>
@@ -24,20 +29,13 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: auto;
 }
-
-#nav {
-  padding: 30px;
+.container {
+  margin-bottom: auto;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-/* #nav a.router-link-exact-active {
-  color: #42b983;
-} */
 </style>
