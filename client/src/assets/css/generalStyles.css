@@ -1,8 +1,11 @@
-html {
-}
 body {
   margin-top: 5.29rem;
-  padding-bottom: 100%;
-  /* display: flex;
-  flex-wrap: wrap; */
+  /* min-height: 1000px; */
+  width: 100%;
+  /* flex-wrap: wrap; */
+}
+@media (max-width: 968px) {
+  body {
+    margin-top: 3.4rem;
+  }
 }

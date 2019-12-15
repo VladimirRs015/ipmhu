@@ -7,7 +7,17 @@ import "./assets/css/resetPadding.css";
 import "./assets/css/colors.css";
 import "./assets/css/generalStyles.css";
 
+//Libraries
+//Aos
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 Vue.config.productionTip = false;
+new Vue({
+  created() {
+    AOS.init();
+  }
+});
 
 new Vue({
   router,

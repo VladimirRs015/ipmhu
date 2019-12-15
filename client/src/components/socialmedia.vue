@@ -6,7 +6,9 @@
 export default {
   name: "socialMedia",
   data() {
-    return {};
+    return {
+      
+    };
   }
 };
 </script>

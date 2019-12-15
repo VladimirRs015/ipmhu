@@ -2,7 +2,9 @@
   <div id="NavBar">
     <!-- Logo -->
     <div class="NavBar">
-      <img src="../assets/Logo.png" class="logo" alt="Logo IPMHU" />
+      <img src="../assets/Logo.png" class="logo" alt="Logo IPMHU" id="logoHome" />
+      <RouterLink id="linkHome" :to="{name:'home'}"></RouterLink>
+
       <!-- Hamburger Menu -->
       <div class="btn-menu-container">
         <label for="menu-mod" class="labelBnt">
@@ -25,7 +27,7 @@
             <router-link class="teachers icons" :to="{name:'teachers'}">Maestros</router-link>
           </li>
           <li class="nav-bar-item">
-            <router-link class="promotions icons" :to="{name:'promotions'}">Promosiones</router-link>
+            <router-link class="promotions icons" :to="{name:'promotions'}">Promociones</router-link>
           </li>
           <li class="nav-bar-item">
             <router-link class="news icons" :to="{name:'news'}">Noticias</router-link>
@@ -56,12 +58,16 @@ export default {
   top: 0;
   left: 0;
   flex: 0 0 auto;
+  z-index: 3;
+  margin-bottom: auto;
 }
 .NavBar {
+  margin-bottom: auto;
   background: var(--color2);
   position: relative;
   display: flex;
   flex: 0 0 auto;
+  box-shadow: 0px 3px 5px 0px rgb(84, 84, 84);
 }
 .logo {
   position: relative;
@@ -71,6 +77,9 @@ export default {
   top: 0;
   margin-right: auto;
   margin-top: 5px;
+}
+.logHome {
+  display: inline-block;
 }
 a {
   font-family: inherit;
@@ -106,6 +115,7 @@ a {
   border: none;
 }
 .nav-bar-item:hover {
+  transition: all 0.3s ease-in-out;
   background: rgba(100, 100, 100, 0.9);
 }
 /* .nav-bar-item:hover {
@@ -156,7 +166,8 @@ a {
   background: inherit;
 }
 .nav-bar-item a.router-link-exact-active {
-  color: #42b983;
+  transition: all 0.4s ease-in-out;
+  color: var(--fourth-color);
   display: flex;
 }
 

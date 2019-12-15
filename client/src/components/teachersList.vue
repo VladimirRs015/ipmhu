@@ -1,13 +1,13 @@
 <template>
   <div id="teachersList">
     <!-- <h2>Teacher's List</h2> -->
-    <article class="teacherBox" v-for="teacher in teachers" :key="teacher.id">
+    <article class="teacherBox" v-for="teacher in pagination()" :key="teacher.id">
       <h1 class="teacherName">{{teacher.name}}</h1>
-      <img class="teacherImg" :src="photos[teacher.id].url" alt />
-      <p
-        class="teacherSummary"
-      >Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi vero doloribus quam sunt blanditiis sapiente beatae quod architecto praesentium ad hic libero in eveniet, a est aperiam ut omnis velit.</p>
+      <p style="color:white">{{teacher.asignature}}</p>
+      <img class="teacherImg" :src="  teacher.images" alt />
+      <p class="teacherSummary">{{teacher.summary}}</p>
     </article>
+    <PaginationButtons />
   </div>
 </template>
 
@@ -15,31 +15,27 @@
 //Services
 // import Service_getTeachers from "../services/getTeachers.js";
 import Axios from "axios";
+import PaginationComponents from "../mixins/pagination.js";
+import PaginationButtons from "../components/paginationButton";
 export default {
+  mixins: [PaginationComponents],
   name: "techersList",
   data() {
-    return {
-      teachers: [],
-      photos: []
-    };
+    return {};
   },
   methods: {
     getTeachers() {
       //   Service_getTeachers.get().then(res => (this.teachers = res.data));
-      Axios.get("https://jsonplaceholder.typicode.com/users ").then(res => {
-        this.teachers = res.data;
-      });
-    },
-    getImages() {
-      Axios.get("https://jsonplaceholder.typicode.com/photos").then(res => {
-        this.photos = res.data;
-        console.log(res.data);
+      Axios.get("http://localhost:4000/teachers").then(res => {
+        this.items = res.data;
       });
     }
   },
   created() {
     this.getTeachers();
-    this.getImages();
+  },
+  components: {
+    PaginationButtons
   }
 };
 </script>
@@ -59,13 +55,14 @@ export default {
   flex: 0 1 auto;
   flex-direction: column;
   margin-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  margin-right: 10px;
   align-content: center;
   justify-content: center;
   overflow: hidden;
   border-radius: 0.5em;
   padding: 1em 2em;
-  background: var(--color1);
+  background: var(--fourth-color);
 }
 .teacherBox:hover .teacherSummary {
   top: 0;
@@ -80,8 +77,6 @@ export default {
 }
 .teacherSummary {
   text-align: left;
-  position: relative;
-  top: 100%;
   width: 100%;
   height: 100%;
   background: rgba(1, 1, 1, 0.1);
@@ -97,12 +92,7 @@ export default {
   height: 150px;
   align-self: center;
   justify-self: center;
-  border-radius: 50%;
-}
-@media (max-width: 768px) {
-  .teacherBox:active .teacherSummary {
-    top: 0;
-    transition: all 0.5s;
-  }
+  border-radius: 10%;
+  margin-bottom: 20px;
 }
 </style>

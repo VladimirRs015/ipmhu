@@ -1,19 +1,23 @@
 <template>
   <div id="footer">
-    <footer>
-      <div>
-        <a href>footer1Link</a>
+    <footer class="footer">
+      <div class="logoContainer">
+        <RouterLink class="logoLink" :to="{name:'home'}">
+          <img src="../assets/Logo.png" class="logo" alt />
+        </RouterLink>
+        <p class="direction">Direccion : Los Alcarrizos, Barrio La Unión</p>
       </div>
-
-      <div>
-        <a href>footer1Link</a>
+      <div class="footerLinks">
+        <p class="webSections">Secciones</p>
+        <RouterLink class="footerLink" :to="{name:'about'}">Nosotros</RouterLink>
+        <RouterLink class="footerLink" :to="{name:'teachers'}">Maestros</RouterLink>
+        <RouterLink class="footerLink" :to="{name:'promotions'}">Promociones</RouterLink>
+        <RouterLink class="footerLink" :to="{name:'news'}">Noticias</RouterLink>
+        <RouterLink class="footerLink" :to="{name:'login'}">Login</RouterLink>
       </div>
-      <div>
-        <a href>footer1Link</a>
-      </div>
-      <div>
-        <a href>footer1Link</a>
-      </div>
+      <!-- <div class="importantLinks">
+        <RouterLink :to="{name:'developers'}">Developers</RouterLink>
+      </div>-->
     </footer>
   </div>
 </template>
@@ -27,18 +31,71 @@ export default {
 };
 </script>
 
-<style>
-footer {
-  background: black;
+<style scoped >
+.footer {
+  background: var(--color2);
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
 }
+.footerLinks {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.importantLinks {
+  display: block;
+}
+.footerLink {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: var(--fourth-color);
+}
+.footerLink:hover {
+  color: var(--color1);
+  transition: all 0.2s ease-in-out;
+}
+.footerLink:hover {
+  text-decoration: underline 10px var(--third-color);
+}
+
 #footer {
-  /* position: relative; */
-  min-width: 100%;
+  width: 100%;
+  position: relative;
+  margin-top: 100%;
   bottom: 0;
-  left: 0;
-  margin-top: auto;
+  right: 0px;
 }
-a {
-  color: white;
+.direction {
+  color: var(--fourth-color);
+  background: white;
+  font-size: 1.5em;
 }
+.logoContainer {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.logoLink {
+  display: flex;
+  justify-content: center;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  align-self: center;
+}
+.webSections {
+  font-size: 40px;
+  color: var(--color3);
+  cursor: normal;
+}
+/* .importantLinks{
+  position: ;
+} */
 </style>

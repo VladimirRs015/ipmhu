@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <NavBar />
-    <div class="container"></div>
+
     <router-view />
 
-    <!-- <Footer /> -->
+    <Footer />
   </div>
 </template>
 <script>
 import NavBar from "./components/NavBar.vue";
-// import Footer from "./components/footer.vue";
+import Footer from "./components/footer.vue";
 // import Axios from "axios";
 export default {
   components: {
-    NavBar
-    // Footer
+    NavBar,
+    Footer
   },
   created() {
     // function request() {
@@ -24,7 +24,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -32,10 +32,7 @@ export default {
   color: #2c3e50;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: auto;
-}
-.container {
+  flex: 0 1 auto;
   margin-bottom: auto;
 }
 </style>

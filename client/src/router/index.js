@@ -6,10 +6,11 @@ import Home from "../views/Home.vue";
 import TeachersView from "../views/teachersView.vue";
 import Developers from "../views/develpers.vue";
 import News from "../views/news.vue";
-import Login from "../views/login.vue";
+import Login from "../views/loginView.vue";
 import Promotions from "../views/promotions.vue";
+import academicDatails from "../views/academicDetails.vue";
+// import Developers from "../views/develpers.vue";
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: "/",
@@ -49,6 +50,16 @@ const routes = [
     path: "/promotions",
     name: "promotions",
     component: Promotions
+  },
+  {
+    path: "/develpers",
+    name: "develpers",
+    component: Developers
+  },
+  {
+    path: "/academicDetails/:id",
+    name: "academicDatails",
+    component: academicDatails
   }
 ];
 

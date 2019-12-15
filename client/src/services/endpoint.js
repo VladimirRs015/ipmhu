@@ -1,6 +1,6 @@
 import axios from "axios";
-const base_URL = "https://randomuser.me/api/";
-// const temporal = "https://jsonplaceholder.typicode.com/users";
+const base_URL = "http://localhost/";
+
 export default axios.create({
   base_URL
 });

@@ -1,7 +1,11 @@
 const express = require("express");
 const Router = express.Router();
-Router.get("/news", async (req, res) => {
-  res.send("The request to initial page has been rosolved");
+const promotiosSchema = require("../models/promotions");
+Router.get("/promotions", async (req, res) => {
+  promotiosSchema
+    .find({})
+    .then(promotions => res.send(promotions))
+    .catch(err => console.log(err));
 });
 
 module.exports = Router;

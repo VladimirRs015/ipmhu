@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta httpn-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      input:not([type="submit"]) {
+        margin: 20px;
+        width: 300px;
+        height: 40px;
+      }
+      textarea {
+        max-width: 300px;
+        min-width: 300px;
+        max-height: 300px;
+        min-height: 300px;
+      }
+      [type="submit"] {
+        width: 200px;
+        height: 30px;
+        border: none;
+      }
+    </style>
+    <title>
+      Data insert
+    </title>
+  </head>
+  <body>
+    <header></header>
+    <nav></nav>
+    <main>
+      <form action="/teachers" method="POST" enctype="multipart/form-data">
+        <input
+          type="text"
+          name="teacherName"
+          placeholder="nombre del maestro"
+        />
+        <input type="file" name="image" id="" value="Elige una imagen" />
+        <textarea
+          name="summary"
+          placeholder="Resumen de info de el maestro"
+          value="resumen"
+          cols="30"
+          rows="10"
+        ></textarea>
+        <input type="text" name="asignature" placeholder="Asignatura" />
+        <button type="submit">
+          Guardar
+        </button>
+      </form>
+    </main>
+    <aside></aside>
+    <footer></footer>
+  </body>
+</html>

@@ -2,16 +2,17 @@ const express = require("express");
 const logger = require("morgan");
 const multer = require("multer");
 const path = require("path");
+const cors = require("cors");
 const App = express();
 //Configs
 App.set("port", process.env.PORT || 4000);
 //Middlewares
 const storage = multer.diskStorage({
   destination: function(req, file, callback) {
-    callback(null, path.join(__dirname, "assets/uploads"));
+    callback(null, path.join(__dirname, "public/uploads"));
   },
   filename: function(req, file, callback) {
-    calllback(null, file.originalname);
+    callback(null, file.originalname);
   }
 });
 App.use(
@@ -26,16 +27,23 @@ App.use(
     // type: urlencoded
   })
 );
+App.use(cors());
+
+/////////////
+///Database//
+////////////
+require("./libs/db.connection");
 
 //Routes
 App.use("/", require("./routes/index"));
 //teachers
-App.use("./teachers", require("./routes/teachers"));
-//Promotions
-App.use("/promotions", require("./routes/promotions"));
-//News
-App.use("/news", require("./routes/news.js"));
+App.use(require("./routes/teachers.js"));
+// //Promotions
+App.use(require("./routes/promotions"));
+// //News
+App.use(require("./routes/news"));
 
+App.use("/public", express.static(path.join(__dirname, "public")));
 //Listen on
 App.listen(App.get("port"), err => {
   if (err) {
@@ -43,3 +51,5 @@ App.listen(App.get("port"), err => {
   }
   console.log("Server on port", App.get("port"));
 });
+
+module.exports = App;

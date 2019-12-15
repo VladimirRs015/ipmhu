@@ -16,4 +16,10 @@ export default {
 </script>
 
 <style>
+.title {
+  margin-top: 20px;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 20px;
+}
 </style>
