@@ -11,7 +11,9 @@ Router.post("/teachers", async (req, res) => {
 
   let params = {
     name: req.body.teacherName,
-    images: ` ${req.protocol}://${req.hostname}:${}/public/uploads/${req.file.filename}`,
+    images: ` ${req.protocol}://${req.hostname}:${4000}/public/uploads/${
+      req.file.filename
+    }`,
     summary: req.body.summary,
     state: "active",
     asignature: req.body.asignature

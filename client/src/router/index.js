@@ -9,6 +9,7 @@ import News from "../views/news.vue";
 import Login from "../views/loginView.vue";
 import Promotions from "../views/promotions.vue";
 import academicDatails from "../views/academicDetails.vue";
+import dashboard from '../views/admin_dashboard.vue'
 // import Developers from "../views/develpers.vue";
 Vue.use(VueRouter);
 const routes = [
@@ -59,7 +60,14 @@ const routes = [
   {
     path: "/academicDetails/:id",
     name: "academicDatails",
-    component: academicDatails
+    component: academicDatails,
+
+  },
+  {
+    path: "/dashboard",
+    name: "administrative",
+    component: dashboard,
+    
   }
 ];
 
