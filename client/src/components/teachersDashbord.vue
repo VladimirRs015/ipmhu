@@ -1,30 +1,41 @@
 <template>
   <div id="teachersAdmin">
-    <form method="POST" enctype="multipart/form-data">
-      <input type="text" v-model="teachersForm.teacher" placeholder="nombre del maestro" />
+    <form @click.prevent="sendTeachers">
+      <input type="text" v-model="form.teacher" placeholder="nombre del maestro" />
       <textarea
-        v-model="teachersForm.summary"
+        v-model="form.summary"
         placeholder="Resumen de info de el maestro"
         value="resumen"
         cols="30"
         rows="10"
       ></textarea>
-      <input type="text" v-model="teachersForm.asignature" placeholder="Asignatura" />
+      <input type="text" v-model="form.asignature" placeholder="Asignatura" />
       <button type="submit">Guardar</button>
     </form>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
-      teachersForm: {
+      form: {
         teacher: "",
         summary: "",
         asignature: ""
       }
     };
+  },
+  methods: {
+    sendTeachers: async function() {
+      let response = await axios.post(
+        "http://localhost:4000/teachers",
+        this.form
+      );
+
+      console.log(response);
+    }
   }
 };
 </script>

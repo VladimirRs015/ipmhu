@@ -7,5 +7,17 @@ Router.get("/promotions", async (req, res) => {
     .then(promotions => res.send(promotions))
     .catch(err => console.log(err));
 });
+Router.post("/promotions", async (req, res) => {
+  const params = {
+    name: req.body.promotionName,
+    year: req.body.promotionYear
+  };
+  promotions.info = req.body.information;
+  const checkInfile = require("../libs/mixin").checkInFile;
+  checkInFile(req, params);
+  console.log(req.body);
+
+  // promotiosSchema.create()
+});
 
 module.exports = Router;
