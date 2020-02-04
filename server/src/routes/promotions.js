@@ -17,7 +17,9 @@ Router.post("/promotions", async (req, res) => {
   checkInFile(req, params);
   console.log(req.body);
 
-  // promotiosSchema.create()
+  promotiosSchema.create(params).then(document => {
+    console.log(document);
+  });
 });
 
 module.exports = Router;

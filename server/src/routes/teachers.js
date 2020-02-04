@@ -6,39 +6,33 @@ Router.get("/teachers", async (req, res) => {
   await teachersSchema.find({}).then(teachers => res.json(teachers));
 });
 
-function add(res) {
-  return new Number(5);
-}
-
 Router.post("/teachers", async (req, res) => {
   // console.log(req.file);
   // console.log(req.body.name);
 
   let params = {
-    name: req.body.teacherName,
+    name: req.body.name,
     summary: req.body.summary,
     state: "active",
     asignature: req.body.asignature
   };
-  console.log(req.body);
   let mixin = require("../libs/mixin");
   mixin.checkInFile(req, params);
-  // console.log(params);
+  console.log(params);
   res.status(102);
+  res.status(102);
+
   await teachersSchema
     .create(params)
     .then(response => {
-      res.redirect("/public/index.html");
+      res.statusMessage("Saved", response);
     })
     .catch(err => {
-      // res.status("409");
-      res.send(
-        `<h1>Error de validacion , verfique que todos los campos esten llenos</h1>
-        <pre>
-        ${err}
-      </pre>
-      `
-      );
+      res.send(err);
+      res.statusCode = 409;
+      res.json({
+        status: "failed"
+      });
     });
 });
 

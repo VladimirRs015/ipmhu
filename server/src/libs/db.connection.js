@@ -6,13 +6,13 @@ async function dbconnect() {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
-    .then(data => console.log("The database is connected"));
-  //
+    .then(data => console.log("The database is connected"))
+    .catch(err => {
+      console.log("Error DB connection failed:", err.name, "Tryng againg...");
+      dbconnect();
+    });
 }
-function handleError(err) {
-  console.error(err);
-  dbconnect();
-}
+
 if (!db) {
   dbconnect();
 }
