@@ -1,21 +1,21 @@
 <template>
   <div id="loginView">
-    <NoImplemented />
     <LoginForm />
   </div>
 </template>
 
 <script>
 import LoginForm from "../components/loginForm.vue";
-import NoImplemented from "../components/notImplemented";
+// import NoImplemented from "../components/notImplemented";
 export default {
   name: "view",
   data() {
-    return {};
+    return {
+      
+    };
   },
   components: {
     LoginForm,
-    NoImplemented
   }
 };
 </script>

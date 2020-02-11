@@ -3,7 +3,7 @@
     <div class="loginBox">
       <div class="card">
         <h1 class="loginTitle">Login</h1>
-        <form action method @submit.prevent="login" class="loginForm">
+        <form action method @submit.prevent="startLogin" class="loginForm">
           <div class="inputEmail iconLogin iconError">
             <input type="text" placeholder="Ingrese su E-mail" class="loginInput" />
           </div>
@@ -22,13 +22,25 @@
 </template>
 
 <script>
+import loginService from '../services/Login'
 export default {
   name: "Login",
   data() {
-    return {};
+    return {
+      loginForm : {
+        email : '', 
+        password : ''
+      }
+    };
   },
   methods: {
-    login() {}
+    async startLogin(){
+      let form = this.loginForm 
+     loginService.post(form).then(res=>{
+       console.log(res)
+     })
+    
+    }
   }
 };
 </script>
