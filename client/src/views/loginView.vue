@@ -8,7 +8,7 @@
 import LoginForm from "../components/loginForm.vue";
 // import NoImplemented from "../components/notImplemented";
 export default {
-  name: "view",
+  name: "loginView",
   data() {
     return {
       

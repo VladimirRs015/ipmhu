@@ -47,8 +47,6 @@ let passport = require('./libs/passport.config')
 App.use(passport.initialize())
 App.use(passport.session())
 
-
-
 //Routes
 App.use("/", require("./routes/index"));
 //teachers

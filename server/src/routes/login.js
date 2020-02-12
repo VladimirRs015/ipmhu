@@ -5,11 +5,13 @@ const passport = require("passport");
 const userSchema = require("../models/users");
 
 router.post("/signin", function(req, res, next) {
-  res.send(req.body)
+  console.log(req.body)
   passport.authenticate("local", function(err, user, info) {
     if (err) return next(err);
     if (!user) {
-      return res.status(401).send('Usuario no encontrado')
+      return res.status(401).json({
+        message : info
+      })
     }
     req.logIn(user, function(err) {
       if (err) return next(err);
@@ -25,7 +27,6 @@ router.post("/signin", function(req, res, next) {
     });
   })(req, res, next);
 });
-
 router.post("/signup", async (req, res, next) => {
   let params = {
     name: req.body.name,
@@ -47,9 +48,7 @@ router.post("/signup", async (req, res, next) => {
         .catch(err => {
           if (err.errors.email) {
             if (err.errors.email.kind == "unique") {
-              res
-                .status(300)
-                .send("Este usuario ya esta regitrado actualmente");
+              res.status(300).send("Este usuario ya esta regitrado actualmente");
             }
           }
         });

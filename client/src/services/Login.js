@@ -1,30 +1,13 @@
-// import endpoint from "./endpoint";
-import axios from 'axios'
-let url = '/signin'
-// let axiosConfig = {
-//     withCredentials : true , 
-//     headers : {
-//       'Content-Type' : 'application/json', 
-//       'Access-Control-Allow-Origin' : 'http://localhost:4000',
-//       'Access-Controll-Allow-Methods' : 'GET PUT UPDATE DELETE'
-//     }
-//   }
+import endpoint from "./endpoint";
 
-const endpoint = 'http://localhost:4000'
-  
-  
+let url = '/signin'
+// const config = {
+//   url : endpoint.base_URL + url, 
+//   headers : endpoint.headers,
+//   method : 'POST'
+// }
 export default {
     post(data){
-          const options = {
-            method: 'POST',
-            headers : {
-                'Content-Type' : 'application/json', 
-                'Access-Control-Allow-Origin' : 'http://localhost:4000',
-                'Access-Controll-Allow-Methods' : 'GET PUT UPDATE DELETE'
-              },
-            data:data  ,
-            url : endpoint + url    
-          };
-          return axios(options);
+     return endpoint.axios.post(endpoint.base_URL + url,data,endpoint.headers)
     }
 }

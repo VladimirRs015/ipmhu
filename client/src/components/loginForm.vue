@@ -5,10 +5,10 @@
         <h1 class="loginTitle">Login</h1>
         <form action method @submit.prevent="startLogin" class="loginForm">
           <div class="inputEmail iconLogin iconError">
-            <input type="text" placeholder="Ingrese su E-mail" class="loginInput" />
+            <input type="text" placeholder="Ingrese su E-mail"  v-model="loginForm.email" class="loginInput" />
           </div>
           <div class="inputPassword iconLogin iconError">
-            <input type="passwod" placeholder="Ingrese su contrase.." class="loginInput" />
+            <input type="passwod" placeholder="Ingrese su contrase.." v-model="loginForm.password" class="loginInput" />
           </div>
           <input type="submit" value="Entrar" class="loginButton" />
         </form>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+// import axios from 'axios'
 import loginService from '../services/Login'
 export default {
   name: "Login",
@@ -38,8 +39,15 @@ export default {
       let form = this.loginForm 
      loginService.post(form).then(res=>{
        console.log(res)
+     }).catch(err=>{
+
+       
+      console.log(err.response)
      })
-    
+
+    // axios.post('http://localhost:4000/signin',form).then((res)=>{
+    //   console.log(res)
+    // })
     }
   }
 };

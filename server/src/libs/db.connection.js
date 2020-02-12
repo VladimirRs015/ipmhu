@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 var db;
 async function dbconnect() {
   db = mongoose
-    .connect("mongodb://localhost:27017/pas", {
+    .connect("mongodb://localhost:27017/ipmhu", {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
