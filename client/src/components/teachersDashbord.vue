@@ -12,6 +12,14 @@
       <input type="text" v-model="form.asignature" placeholder="Asignatura" />
       <button type="submit">Guardar</button>
     </form>
+    <form action="">
+      <button @click="logout">
+        Logout
+      </button>
+      <button @click="comprobar">
+        comprobar
+      </button>
+    </form>
   </div>
 </template>
 
@@ -35,9 +43,37 @@ export default {
       );
 
       console.log(response);
+    },
+    printSession() {
+      console.log(this.$session)
+      if(this.$session.exists()){
+        console.log('estas logueado y el este es tu token : ')
+        console.log(this.$session.get('jwt'))
+      }
+      else {
+        console.log('ahora no estas loggeado')
+      }
+    }, 
+      comprobar(){
+        if(this.$session.exists()){
+        console.log('estas logueado y el este es tu token : ')
+        }
+        else {
+          console.log('ahora no estas logueado')
+        }
+      }, 
+    logout(){
+      if(this.$session.exists()){
+        this.$session.destroy();
+      } 
+
     }
+  },
+  created() {
+    this.printSession()
   }
-};
+}
+
 </script>
 
 <style>

@@ -5,12 +5,54 @@ const path = require("path");
 const cors = require("cors");
 const cookies = require('cookie-parser')
 const session = require('express-session')
+const jwk = require('jsonwebtoken')
 
 /////////////
 ///Database//
 ////////////
 require("./libs/db.connection");
 const App = express();
+
+//Test
+
+
+// let user = {
+//   name : 'vladimri', 
+//   password : '1123', 
+//   rol : 'admin'
+// } 
+
+// var token  = jwk.sign(user,' a secret',{
+//   expiresIn : 60 * 60 * 24 
+// })  
+// App.get('/jwk',(req,res)=>{
+//   res.send(token)
+// })
+
+// App.get('/flip',(req,res)=>{
+//   let token = req.headers['authorization']
+//   console.log(req.headers)
+//   console.log(token)
+//   if(!token){
+//     res.status(401).send({
+//       error: "Es necesario el token de autenticación"
+//     })
+//     return
+//   }
+// jwk.verify(token,' a secret',function(err,user){
+//   if(err){ 
+//     return res.status(401).send({message : 'Token invalido'})
+//   }
+//   else {
+//     res.send({
+//       message: 'Ajuaaaaa!!'
+//     })
+//   }
+// })
+// })
+//Test
+
+
 
 
 

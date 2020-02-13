@@ -3,9 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const userSchema = require("../models/users");
-
 router.post("/signin", function(req, res, next) {
-  console.log(req.body)
   passport.authenticate("local", function(err, user, info) {
     if (err) return next(err);
     if (!user) {
@@ -15,15 +13,7 @@ router.post("/signin", function(req, res, next) {
     }
     req.logIn(user, function(err) {
       if (err) return next(err);
-      let userToSend = {
-        image : user.image , 
-        roles : user.roles,
-        _id : user._id , 
-        name : user.name , 
-        email : user.email, 
-      }
-      //I delete this property because it wont be used 
-      res.status(200).send(userToSend);
+      res.status(200).send(user)
     });
   })(req, res, next);
 });
