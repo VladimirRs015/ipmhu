@@ -17,23 +17,11 @@
       <input type="checkbox" class="chk-menu" name="chk-menu" id="menu-mod" />
       <nav class="nav-bar">
         <ul class="main-menu">
-          <li class="nav-bar-item">
-            <router-link class="home icons" :to="{name:'home'}">Inicio</router-link>
-          </li>
-          <li class="nav-bar-item">
-            <router-link class="about icons" :to="{name:'about'}">Nosotros</router-link>
-          </li>
-          <li class="nav-bar-item">
-            <router-link class="teachers icons" :to="{name:'teachers'}">Maestros</router-link>
-          </li>
-          <li class="nav-bar-item">
-            <router-link class="promotions icons" :to="{name:'promotions'}">Promociones</router-link>
-          </li>
-          <li class="nav-bar-item">
-            <router-link class="news icons" :to="{name:'news'}">Noticias</router-link>
-          </li>
-          <li class="nav-bar-item">
-            <router-link class="login icons" :to="{name:'login'}">Login</router-link>
+          <li class="nav-bar-item" v-for="link in links" :key="link.anchorText">
+            <router-link
+              :to="{name:link.routeComponentName}"
+              :class="link.class"
+            >{{link.anchorText}}</router-link>
           </li>
         </ul>
       </nav>
@@ -45,9 +33,78 @@
 export default {
   name: "NavBar",
   data() {
-    return {};
+    return {
+      links : [
+        {
+          class:"home icons",  
+          routeComponentName :'home', 
+          anchorText : 'Inicio'
+        },
+        {
+          class:"about icons",  
+          routeComponentName :'about', 
+          anchorText : 'Nosotros',  
+        },
+        {
+          class:"teachers icons",  
+          routeComponentName :'teachers', 
+          anchorText : 'Maestros'
+        },
+        {
+          class:"promotions icons",  
+          routeComponentName :'promotions', 
+          anchorText : 'Promociones',
+        }, 
+        {
+          class:"news icons",  
+          routeComponentName :'news', 
+          anchorText : 'Noticias',
+         
+        },
+        {
+          class:"login icons",  
+          routeComponentName :'login', 
+          anchorText : 'Login',
+        } 
+      ]
+    }
+  }, 
+  methods : {
+ isLogged(){
+      let logout = {
+          class:"login icons",  
+          routeComponentName :'login', 
+          anchorText : 'Logout',
+        }
+      let config = {
+          class:"login icons",  
+          routeComponentName :'login', 
+          anchorText : 'Configuracion',
+      }
+      let session = this.$session.exists(); 
+      let links = this.links
+      if(session){
+        let arrayIndex = 0 ; 
+        links.forEach(element => {
+          if(element.class.toLowerCase().includes('login')){
+            console.log('si esta funcionando y el indice es ' + arrayIndex)
+            links.splice(arrayIndex,1,logout)
+            links.push(config)
+            this.links = links
+            if(this.$session.exists()){
+              return true
+            }
+          }
+          arrayIndex++
+        });
+      }
+        
+      }
+  },
+  created(){
+  //  this.isLogged()
   }
-};
+}
 </script>
 
 <style scoped>

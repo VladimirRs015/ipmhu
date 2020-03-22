@@ -1,8 +1,8 @@
-import endpoint from "./endpoint.js";
+import endpoint from './endpoint'
+const url = '/news'
 
-const url = "news";
-export default {
-  get() {
-    endpoint.get(url);
+export default{
+  get(){
+    return endpoint.get(url)
   }
-};
+}

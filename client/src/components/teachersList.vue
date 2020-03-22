@@ -1,11 +1,15 @@
 <template>
   <div id="teachersList">
     <!-- <h2>Teacher's List</h2> -->
-    <article class="teacherBox" v-for="teacher in pagination()" :key="teacher.id">
+    <article class="teacherBox " v-for="teacher in pagination()" :key="teacher.id">
+      <details :class="teacher._id">
+        <summary class="summary-drop-down">
       <h1 class="teacherName">{{teacher.name}}</h1>
-      <p style="color:white">{{teacher.asignature}}</p>
+      <p class="teachersAsignare">{{teacher.asignature}}</p>
       <img class="teacherImg" :src="  teacher.images" alt />
+        </summary>
       <p class="teacherSummary">{{teacher.summary}}</p>
+      </details>
     </article>
     <PaginationButtons />
   </div>
@@ -87,6 +91,11 @@ export default {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   padding: 10px;
 }
+.teachersAsignare{
+  color:white; 
+  align-self: flex-end;
+  margin-right: 2em
+}
 .teacherImg {
   width: 150px;
   height: 150px;
@@ -94,5 +103,27 @@ export default {
   justify-self: center;
   border-radius: 10%;
   margin-bottom: 20px;
+}
+.drop-down{
+  display: flex ; 
+  justify-content: center; 
+  align-items: center; 
+}
+ .drop-down[open] summary ~ * {
+  animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; margin-left: -15px}
+  100%  {opacity: 1; margin-left: 0px}
+}
+.summary-drop-down{
+  display: flex ; 
+  justify-content: center; 
+  align-items: center; 
+  flex-wrap: wrap ;
+  flex-direction: column;
+  cursor: pointer;
+ 
 }
 </style>

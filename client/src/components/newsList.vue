@@ -23,9 +23,17 @@ export default {
   },
   methods: {
     getNews() {
-      return axios
-        .get("http://localhost:4000/news")
-        .then(res => (this.news = res.data));
+      console.log('1')
+      let token = this.$session.get("jwt");
+      axios.get("http://localhost:4000/news", {
+        headers: {
+          withCredentials: true,
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:4000",
+          "Access-Controll-Allow-Methods": "GET PUT UPDATE DELETE",
+          Authorization: "Bearer " + token //the token is a variable which holds the token
+        }
+      }); 
     },
     localDate: function(date) {
       //   return date.toLocalDateString();

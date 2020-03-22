@@ -3,12 +3,22 @@
     <div class="loginBox">
       <div class="card">
         <h1 class="loginTitle">Login</h1>
-        <form action method @submit.prevent="login" class="loginForm">
+        <form action method @submit.prevent="startLogin" class="loginForm">
           <div class="inputEmail iconLogin iconError">
-            <input type="text" placeholder="Ingrese su E-mail" class="loginInput" />
+            <input
+              type="text"
+              placeholder="Ingrese su E-mail"
+              v-model="loginForm.email"
+              class="loginInput"
+            />
           </div>
           <div class="inputPassword iconLogin iconError">
-            <input type="passwod" placeholder="Ingrese su contrase.." class="loginInput" />
+            <input
+              type="passwod"
+              placeholder="Ingrese su contrase.."
+              v-model="loginForm.password"
+              class="loginInput"
+            />
           </div>
           <input type="submit" value="Entrar" class="loginButton" />
         </form>
@@ -22,13 +32,39 @@
 </template>
 
 <script>
+// import axios from 'axios'
+import loginService from "../services/Login";
 export default {
   name: "Login",
   data() {
-    return {};
+    return {
+      loginForm: {
+        email: "camprexx.rd@gmail.com",
+        password: "Bestking015015"
+      }
+    };
   },
   methods: {
-    login() {}
+    async startLogin() {
+      let form = this.loginForm;
+      loginService
+        .post(form)
+        .then(res => {
+          if (res.status === 200 && "token" in res.data) {
+            let token = res.data.token
+            //Start a session 
+            this.$session.start();
+            //Use the key jwt for the token's value 
+            this.$session.set('jwt',token)
+            this.$router.push('/dashboard')
+            //Save the token in the store 
+            // this.$store.commit('setToken','sadfa')
+          }
+        })
+        .catch(err => {
+          console.log(err.response);
+        });
+    } 
   }
 };
 </script>
