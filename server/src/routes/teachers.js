@@ -7,9 +7,6 @@ Router.get("/teachers", async (req, res) => {
 });
 
 Router.post("/teachers", async (req, res) => {
-  // console.log(req.file);
-  // console.log(req.body.name);
-
   let params = {
     name: req.body.name,
     summary: req.body.summary,
@@ -19,20 +16,15 @@ Router.post("/teachers", async (req, res) => {
   let mixin = require("../libs/mixin");
   mixin.checkInFile(req, params);
   console.log(params);
-  res.status(102);
-  res.status(102);
 
   await teachersSchema
     .create(params)
     .then(response => {
-      res.statusMessage("Saved", response);
+        res.status(200).send({message:'Profesor creado correctamente'})
     })
     .catch(err => {
-      res.send(err);
-      res.statusCode = 409;
-      res.json({
-        status: "failed"
-      });
+      console.log(err)
+      res.status(202).send({message:'El profesor no se ha podido crear correctamente'})
     });
 });
 

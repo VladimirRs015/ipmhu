@@ -41,11 +41,10 @@ export default {
         "http://localhost:4000/teachers",
         this.form
       );
-
       console.log(response);
     },
     printSession() {
-      console.log(this.$session)
+      // console.log(this.$session)
       if(this.$session.exists()){
         console.log('estas logueado y el este es tu token : ')
         console.log(this.$session.get('jwt'))
@@ -66,11 +65,10 @@ export default {
       if(this.$session.exists()){
         this.$session.destroy();
       } 
-
     }
   },
   created() {
-    this.printSession()
+
   }
 }
 

@@ -10,17 +10,30 @@
 <script>
 import NavBar from "./components/NavBar.vue";
 import Footer from "./components/footer.vue";
+// import axios from 'axios'
 // import Axios from "axios";
 export default {
+  data(){
+    return {
+      logged  : false 
+    }
+  }, 
   components: {
     NavBar,
     Footer
   },
-  created() {
-    // function request() {
-    //   Axios.get("http://localhost:4000/hola");
+  methods:{
+  //   valid(){
+  //     console.log(this.$store.state)
+  //     console.log(this.$session.get('jwt'))
+  //     if(this.$store.state.AuthorizationToken === this.$session.get('jwt')){
+  //       axios.get('http://localhost:4000/teachers').then(res=>console.log(res))
+  //  }
     // }
-    // request();
+    
+  },
+  created() {
+    
   }
 };
 </script>

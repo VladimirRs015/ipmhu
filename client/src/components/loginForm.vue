@@ -51,17 +51,20 @@ export default {
         .post(form)
         .then(res => {
           if (res.status === 200 && "token" in res.data) {
+            let token = res.data.token
+            //Start a session 
             this.$session.start();
-            this.$session.set('jwt',res.data.token)
-            this.$http.headers.common['Authorization'] = res.data.token
-
+            //Use the key jwt for the token's value 
+            this.$session.set('jwt',token)
             this.$router.push('/dashboard')
+            //Save the token in the store 
+            // this.$store.commit('setToken','sadfa')
           }
         })
         .catch(err => {
           console.log(err.response);
         });
-    }
+    } 
   }
 };
 </script>
