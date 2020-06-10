@@ -1,26 +1,3 @@
-<template>
-  <div id="footer">
-    <footer class="footer">
-      <div class="logoContainer">
-        <RouterLink class="logoLink" :to="{name:'home'}">
-          <img src="../assets/Logo.png" class="logo" alt />
-        </RouterLink>
-        <p class="direction">Direccion : Los Alcarrizos, Barrio La Unión</p>
-      </div>
-      <div class="footerLinks">
-        <p class="webSections">Secciones</p>
-        <RouterLink class="footerLink" :to="{name:'about'}">Nosotros</RouterLink>
-        <RouterLink class="footerLink" :to="{name:'teachers'}">Maestros</RouterLink>
-        <RouterLink class="footerLink" :to="{name:'promotions'}">Promociones</RouterLink>
-        <RouterLink class="footerLink" :to="{name:'news'}">Noticias</RouterLink>
-        <RouterLink class="footerLink" :to="{name:'login'}">Login</RouterLink>
-      </div>
-      <!-- <div class="importantLinks">
-        <RouterLink :to="{name:'developers'}">Developers</RouterLink>
-      </div>-->
-    </footer>
-  </div>
-</template>
 
 <script>
 export default {
